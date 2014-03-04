@@ -3,4 +3,7 @@ for making MFM images from OOMMF calculations.
 
 These are include a magnetic potential space
 distribution, magnetic field and it's spatial
-derivatives up to second order calculations. 
+derivatives up to second order calculations.
+
+The main file is called main.py and it calls 
+functions You wish to call.
