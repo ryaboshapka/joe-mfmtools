@@ -1,0 +1,6 @@
+The joe-mfmtools is a set of python coded tools 
+for making MFM images from OOMMF calculations.
+
+These are include a magnetic potential space
+distribution, magnetic field and it's spatial
+derivatives up to second order calculations. 
