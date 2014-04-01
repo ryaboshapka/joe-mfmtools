@@ -7,3 +7,72 @@ derivatives up to second order calculations.
 
 The main file is called main.py and it calls 
 functions You wish to call.
+On Windows I recommend using PythonXY as scripts 
+use libraries matplotlib and numpy. 
+It is convenient to open the script using 
+IDE Spyder, which is part of PythonXY. 
+You can certainly use any other text editor. 
+On Linux and Mac Os the libraries matplotlib 
+and numpy must be installed separately as PythonXY
+ for these systems is absent. Then in main.py put 
+the name of the *.omf file that should be displayed. 
+On windows for example: 
+
+filename = 'c: \ \ oommf-1.2a5 \ \ work \ \ omf \ \ walls6.omf'
+
+Then run the script by the command python main.py 
+or run it from IDE Spyder. As a result, the work 
+should be a picture with MFM contrast. 
+To read binary 4 (not binary 8) *.omf or  *.ovf files 
+the function omfread.read_bi4file is used,
+The output of this function is arrays of projections 
+of the magnetic moment mx, my, mz, the number of 
+calculation cells xnodes, ynodes, znodes, and their 
+dimensions xstepsize, ystepsize, zstepsize. 
+To read the text  *.omf or  *.ovf files the function 
+omfread.read_textfile may be used.
+Both functions are in the file omfread.py.
+It is believed that MFM contrast represents 
+the distribution of the second derivative of 
+the magnetic field along the z direction 
+(MFM probe is a point dipole directed along z). 
+For calculating the second derivative of the 
+magnetic field at z the function 
+magn_d2fzdz2.f_d2fz_dz2 is used. 
+It can be found in the file magn_d2fzdz2.py
+You also can calculate the scalar potential of 
+the magnetic field H using the function 
+magnetic.potential 
+from the file magnetic.py, which calculates 
+the magnetic potential in forehead, and therefore slow.
+Or you can use the function magnetic.lost_potential, 
+which initially diminish the number of calculating 
+cells by a factor specified in the argument and then 
+calculates the magnetic potential in forehead. 
+At last you can use the function 
+magnetic.f_potential, which calculates the potential 
+by the Fourier method, which is much faster, but 
+there is a distortion at the edges, which is the 
+smaller, the more calculation cells.
+Also there are sets of functions for the calculation 
+of the field components in x
+magn_fld_x.field_x, 
+magn_fld_x.lost_field_x, 
+magn_fld_x.lost_field_x
+and in y and z. 
+There are function which calculate z derivatives 
+of the field components along x, y, z, and the 
+second z derivatives of the field components along x, y, z.
+This is done in order to be able to simulate the probe 
+with any distribution of the magnetization and integrate 
+the derivative of the force of interaction of the 
+magnetic field of the sample with the probe around 
+the probe. This was done, and as a result it was 
+shown that by integrating the probe can be replaced 
+by increasing the effective height of the probe over 
+the surface of the sample.
+
+Lift height is specified by 
+Z = nZ * zstep2 Essentially nZ * zstep2 do not need, 
+you can simply specify the number . 
+All dimensions are in cm. 
