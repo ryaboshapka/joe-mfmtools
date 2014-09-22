@@ -26,7 +26,7 @@ plt.axis('off')
 imgplot = ax.imshow(F)
 imgplot.set_cmap('gray')
 
-
+# The figure can be saved
 #fig.savefig('ToolPath2f.jpg')
 
 plt.show()
